@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Site Builder</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="builder.js"></script>
+</head>
+
+<!-- i should use web storage to allow the progress to be recorded and 
+    allow them to come back later to make additional changes -->
+
+<body>
+
+        <nav id="mySidebar" class="sidebar">
+            <!-- make these a ul li
+            add the dropdown sections for create edit and delete -->
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+
+
+            <a href="#create" data-toggle="collapse">Create</a>
+            <div id="create" class="col-sm-12 collapse">
+                <div class="form-group">
+                    <select id="create-content" class="form-control">
+                        <option selected hidden>--Select Content Type--</option>
+                        <option id="option-create-header" value="create-header">Header</option>
+                        <option value="create-section">Section</option>
+                        <option id="option-create-footer" value="create-footer">Footer</option>
+                    </select>
+                </div>
+
+                <div id="create-header" class="form-group create-content" hidden>
+                    <label for="header-text">Header Text</label>
+                    <input id="header-text" class="form-control">
+                    <label for="header-align">Text Align</label>
+                    <select id="header-align" class="form-control">
+                        <option>Center</option>
+                        <option>Left</option>
+                        <option>Right</option>
+                    </select>
+
+                    <label for="header-fg-color">Font Color</label>
+                    <input type="color" id="header-fg-color-selector" class="form-control" value="#ffffff">
+                    <input id="header-fg-color" class="form-control" value="#ffffff">
+
+                    <label for="header-bg-color">Background Color</label>
+                    <input type="color" id="header-bg-color-selector" class="form-control" value="#000000">
+                    <input id="header-bg-color" class="form-control" value="#000000">
+
+                    <input type="submit" id="submit-header" class="form-control" value="Create Header" onclick="createHeader()">
+                </div>
+
+                <div id="create-section" class="form-group create-content" hidden>
+                    This is for sections
+                </div>
+
+                <div id="create-footer" class="form-group create-content" hidden>
+                    This is for the footer
+                </div>
+            </div>
+
+
+            <!-- when an element is selected for edit or delete, outline it in red -->
+            <a href="#edit" data-toggle="collapse">Edit</a>
+            <div id="edit" class="col-sm-12 collapse">
+                <div class="form-group">
+                    <select id="edit-content" class="form-control">
+                        <option selected hidden>--Select Content Type--</option>
+                        <option id="option-edit-header" value="edit-header" hidden>Header</option>
+                        <option id="option-edit-footer" value="edit-footer" hidden>Footer</option>
+                    </select>
+                </div>
+            </div>
+
+
+            <a href="#delete" data-toggle="collapse">Delete</a>
+            <div id="delete" class="collapse">
+                This is for deleting elements
+            </div>
+
+
+            <!-- the about should contain information about the project, including myself -->
+            <a href="#about" data-toggle="collapse">About</a>
+            <div id="about" class="collapse">
+                <p>
+                    This is a site meant to be used by anybody in need of a 
+                    static site and doesn't want to have to pay for an expensive monthly service.
+                </p>
+            </div>
+            <!-- maybe add a paypal donate button? people can pay if they like but otherwise it is a free tool -->
+        </nav>
+        
+
+        <button class="openbtn" onclick="openNav()">☰</button>
+
+
+        <main id="main">
+
+
+
+        </main>
+    
+</body>
+</html>
